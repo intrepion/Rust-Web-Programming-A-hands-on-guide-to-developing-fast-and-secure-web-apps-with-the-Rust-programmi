@@ -3,6 +3,6 @@ fn print(input_string: String) {
 }
 
 fn main() {
-    let test_string = String::from("Hello, World!");
-    print(test_string);
+    let test_string = "Hello, World!";
+    print(test_string.to_string());
 }
