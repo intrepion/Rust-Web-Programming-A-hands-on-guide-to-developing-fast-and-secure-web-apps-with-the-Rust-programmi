@@ -6,7 +6,14 @@ fn error_check(check: bool) -> Result<i8, &'static str> {
     }
 }
 
+fn describe_result(result: Result<i8, &'static str>) {
+    match result {
+        Ok(x) => println!("its a result of: {}", x),
+        Err(x) => println!("{}", x),
+    }
+}
+
 fn main() {
-    let result: i8 = error_check(false).unwrap();
-    println!("{}", result);
+    let result: Result<i8, &'static str> = error_check(true);
+    describe_result(result);
 }
