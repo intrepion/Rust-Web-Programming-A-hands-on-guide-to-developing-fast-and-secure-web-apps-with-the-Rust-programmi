@@ -12,7 +12,7 @@ fn main() {
     }
 
     let second_int_array: [i32; 3] = [1, 2, 3];
-    let two = second_int_array[1];
+    let _two = second_int_array[1];
 
     str_vector.push("four");
 }
