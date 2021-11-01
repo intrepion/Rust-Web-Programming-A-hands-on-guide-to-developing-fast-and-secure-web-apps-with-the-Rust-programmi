@@ -1,14 +1,14 @@
-fn alter_number(number: &mut String) {
-    number.push("!".chars().next().unwrap());
+fn alter_number(number: &mut i8) {
+    *number += 1
 }
 
-fn print_number(number: &String) {
+fn print_number(number: i8) {
     println!("{}", number);
 }
 
 fn main() {
-    let mut one: String = String::from("one");
-    print_number(&one);
+    let mut one: i8 = 1;
+    print_number(one);
     alter_number(&mut one);
     println!("{}", one);
 }
