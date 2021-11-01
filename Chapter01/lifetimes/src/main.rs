@@ -1,8 +1,16 @@
+fn get_highest<'a>(first_number: &'a i8, second_number: &'a i8) -> &'a i8 {
+    if first_number > second_number {
+        first_number
+    } else {
+        second_number
+    }
+}
+
 fn main() {
-    let one;
+    let one: i8 = 1;
     {
         let two: i8 = 2;
-        one = &two
-    } // -----------------------> two lifetime stops here
-    println!("r: {}", one);
+        let outcome: &i8 = get_highest(&one, &two);
+        println!("{}", outcome);
+    }
 }
