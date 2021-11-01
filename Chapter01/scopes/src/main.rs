@@ -1,9 +1,9 @@
+fn print_number(number: String) {
+    println!("{}", number);
+}
+
 fn main() {
     let one: String = String::from("one");
-    {
-        println!("{}", one);
-        let two: String = String::from("two");
-    }
+    print_number(one);
     println!("{}", one);
-    // println!("{}", two);
 }
