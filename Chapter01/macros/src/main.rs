@@ -1,13 +1,14 @@
-macro_rules! capitalize {
-    ($a: expr) => {
-        let mut v: Vec<char> = $a.chars().collect();
-        v[0] = v[0].to_uppercase().nth(0).unwrap();
-        $a = v.into_iter().collect();
-    }
+struct Coordinate {
+    x: i8,
+    y: i8,
+}
+
+fn print(point: Coordinate) {
+    println!("{} {}", point.x, point.y);
 }
 
 fn main() {
-    let mut x = String::from("test");
-    capitalize!(x);
-    println!("{}", x);
+    let test = Coordinate {x: 1, y: 2};
+    print(test);
+    println!("{}", test.x);
 }
