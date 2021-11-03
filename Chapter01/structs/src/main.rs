@@ -1,44 +1,56 @@
-use std::collections::HashMap;
-
-enum AllowedData {
-    S(String),
-    I(i8),
-}
-
-struct CustomMap {
-    body: HashMap<String, AllowedData>
-}
-
-impl CustomMap {
-    fn new() -> CustomMap {
-        return CustomMap { body: HashMap::new() }
-    }
-
-    fn get(&self, key: &str) -> &AllowedData {
-        return self.body.get(key).unwrap()
-    }
-
-    fn insert(&mut self, key: &str, value: AllowedData) -> () {
-        self.body.insert(key.to_string(), value);
-    }
-
-    fn display(&self, key: &str) -> () {
-        match self.get(key) {
-            AllowedData::I(value) => println!("{}", value),
-            AllowedData::S(value) => println!("{}", value),
-        }
+trait CanEdit {
+    fn edit(&self) {
+        println!("user is editing");
     }
 }
 
-fn main() {
-    // defining a new hash map
-    let mut map = CustomMap::new();
-
-    // inserting two different types of data
-    map.insert("test", AllowedData::I(8));
-    map.insert("testing", AllowedData::S("test value".to_string()));
-
-    // displaying the data
-    map.display("test");
-    map.display("testing");
+trait CanCreate {
+    fn create(&self) {
+        println!("user is creating");
+    }
 }
+
+trait CanDelete {
+    fn delete(&self) {
+        println!("user is deleting");
+    }
+}
+
+struct AdminUser {
+    name: String,
+    password: String,
+}
+
+impl CanDelete for AdminUser {}
+impl CanCreate for AdminUser {}
+impl CanEdit for AdminUser {}
+
+fn delete<T: CanDelete>(user: T) -> () {
+    user.delete();
+}
+
+struct BaseUser {
+    name: String,
+    password: String,
+}
+
+struct GeneralUser {
+    super_struct: BaseUser,
+    team: String,
+}
+
+impl GeneralUser {
+    fn new(name: String, password: String, team: String) -> GeneralUser {
+        return GeneralUser { super_struct: BaseUser { name, password }, team: team}
+    }
+}
+
+impl CanEdit for GeneralUser {}
+
+impl CanCreate for GeneralUser {
+    fn create(&self) -> () {
+        println!("{} is creating under a {} team", self.super_struct.name, self.team);
+    }
+}
+
+fn main() -> () {}
