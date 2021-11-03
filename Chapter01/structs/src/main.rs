@@ -1,34 +1,44 @@
-struct Human {
-    name: String,
-    age: i8,
-    current_thought: String,
+use std::collections::HashMap;
+
+enum AllowedData {
+    S(String),
+    I(i8),
 }
 
-impl Human {
-    fn new(input_name: &str, input_age: i8) -> Human {
-        return Human {
-            name: input_name.to_string(),
-            age: input_age,
-            current_thought: String::from("nothing"),
+struct CustomMap {
+    body: HashMap<String, AllowedData>
+}
+
+impl CustomMap {
+    fn new() -> CustomMap {
+        return CustomMap { body: HashMap::new() }
+    }
+
+    fn get(&self, key: &str) -> &AllowedData {
+        return self.body.get(key).unwrap()
+    }
+
+    fn insert(&mut self, key: &str, value: AllowedData) -> () {
+        self.body.insert(key.to_string(), value);
+    }
+
+    fn display(&self, key: &str) -> () {
+        match self.get(key) {
+            AllowedData::I(value) => println!("{}", value),
+            AllowedData::S(value) => println!("{}", value),
         }
-    }
-
-    fn with_thought(mut self, thought: String) -> Human {
-        self.current_thought = thought;
-        return self
-    }
-
-    fn speak(&self) -> () {
-        println!("Hello my name is {} and I'm {} years old.", &self.name, &self.age);
     }
 }
 
 fn main() {
-    let developer = Human::new("Maxwell Flitton", 31);
-    developer.speak();
-    println!("currently I'm thinking {}", developer.current_thought);
+    // defining a new hash map
+    let mut map = CustomMap::new();
 
-    let new_developer = Human::new("Grace", 30).with_thought(String::from("I'm Hungry"));
-    new_developer.speak();
-    println!("currently I'm thinking {}", new_developer.current_thought);
+    // inserting two different types of data
+    map.insert("test", AllowedData::I(8));
+    map.insert("testing", AllowedData::S("test value".to_string()));
+
+    // displaying the data
+    map.display("test");
+    map.display("testing");
 }
