@@ -1,3 +1,4 @@
+#[derive(Clone, Copy)]
 struct Coordinate {
     x: i8,
     y: i8,
