@@ -38,6 +38,18 @@ mod test {
         assert_eq!(expected, actual);
     }
 
+    #[test]
+    fn handle_check_new_project_with_empty_project_name() {
+        let expected = "Empty project name.";
+        let arguments = vec![
+            "new_project".to_string(),
+            "1".to_string(),
+            " ".to_string(),
+        ];
+        let actual = check_new_project(arguments).unwrap_err();
+
+        assert_eq!(expected, actual);
+    }
 }
 
 fn check_new_project(arguments: Vec<String>) -> Result<(), &'static str> {
@@ -49,6 +61,11 @@ fn check_new_project(arguments: Vec<String>) -> Result<(), &'static str> {
     if arguments.len() == 2
     {
         return Err("Missing project name.");
+    }
+
+    if arguments[2].trim().eq("")
+    {
+        return Err("Empty project name.");
     }
 
     return Err("Invalid page number.");
