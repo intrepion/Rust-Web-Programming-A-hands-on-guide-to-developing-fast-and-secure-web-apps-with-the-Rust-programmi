@@ -4,14 +4,35 @@ mod test {
 
     #[test]
     fn handle_check_new_project_with_no_environment_arguments() {
-        let expected = "Missing environment arguments";
-        let actual = check_new_project(vec!["new_project".to_string()]).unwrap_err();
+        let expected = "Missing page number.";
+        let arguments = vec![
+            "new_project".to_string(),
+        ];
+        let actual = check_new_project(arguments).unwrap_err();
+
+        assert_eq!(expected, actual);
+    }
+
+    #[test]
+    fn handle_check_new_project_with_an_invalid_page_number() {
+        let expected = "Invalid page number.";
+        let arguments = vec![
+            "new_project".to_string(),
+            "one".to_string(),
+        ];
+        let actual = check_new_project(arguments).unwrap_err();
+
         assert_eq!(expected, actual);
     }
 }
 
-fn check_new_project(_arguments: Vec<String>) -> Result<(), &'static str> {
-    return Err("Missing environment arguments");
+fn check_new_project(arguments: Vec<String>) -> Result<(), &'static str> {
+    if arguments.len() == 1
+    {
+        return Err("Missing page number.");
+    }
+
+    return Err("Invalid page number.");
 }
 
 fn main() {
