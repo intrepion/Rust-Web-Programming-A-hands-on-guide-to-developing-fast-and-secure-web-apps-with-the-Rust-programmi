@@ -65,7 +65,13 @@ mod test {
     }
 }
 
-fn check_new_project(arguments: Vec<String>) -> Result<u32, &'static str> {
+#[derive(Debug)]
+struct Project {
+    name: String,
+    page_number: u32,
+}
+
+fn check_new_project(arguments: Vec<String>) -> Result<Project, &'static str> {
     if arguments.len() == 1
     {
         return Err("Missing page number.");
@@ -82,7 +88,10 @@ fn check_new_project(arguments: Vec<String>) -> Result<u32, &'static str> {
     }
 
     return match arguments[1].parse::<u32>() {
-        Ok(n) => Ok(n),
+        Ok(n) => Ok(Project {
+            name: arguments[2].to_string(),
+            page_number: n,
+        }),
         Err(_) => Err("Invalid page number."),
     }
 }
