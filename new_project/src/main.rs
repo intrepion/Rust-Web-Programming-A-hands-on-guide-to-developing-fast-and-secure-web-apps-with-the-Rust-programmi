@@ -53,7 +53,10 @@ mod test {
 
     #[test]
     fn handle_check_new_project_happy_path() {
-        let expected = 1;  
+        let expected = Project {
+            name: "hello".to_string(),
+            page_number: 1,
+        };
         let arguments = vec![
             "new_project".to_string(),
             "1".to_string(),
@@ -65,7 +68,7 @@ mod test {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 struct Project {
     name: String,
     page_number: u32,
