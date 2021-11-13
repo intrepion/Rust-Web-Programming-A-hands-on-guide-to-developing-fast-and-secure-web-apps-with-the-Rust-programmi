@@ -208,11 +208,8 @@ fn create_project(project: Project) {
     fs::create_dir_all("../projects").unwrap();
 
     let page_number_digits = ((project.page_number as f64).log(10_f64).trunc() as i32) + 1;
-    println!("page_number_digits: {}", page_number_digits);
     let last_page_digits = ((project.last_page as f64).log(10_f64).trunc() as i32) + 1;
-    println!("last_page_digits: {}", last_page_digits);
     let difference = last_page_digits - page_number_digits;
-    println!("difference: {}", difference);
 
     let project_folder = "page_".to_owned()
         + &repeat("0").take(difference as usize).collect::<String>()
@@ -227,7 +224,7 @@ fn create_project(project: Project) {
         .output()
         .expect("failed to create project");
 
-    let rust_yml = "name: Rust
+    let rust_yml_beginning = "name: Rust
 
 on:
   push:
@@ -250,6 +247,28 @@ jobs:
     - name: Run tests
       run: cd new_project && cargo test --verbose
 ";
+
+    let github_actions = match fs::read_dir("../projects") {
+        Err(_) => vec!["".to_string()],
+        Ok(paths) => paths.map(|path| {
+            let file_name = path.unwrap().file_name().into_string().unwrap();
+            return format!("    - name: Build
+      run: cd projects/{} && cargo build --verbose
+    - name: Run tests
+      run: cd projects/{} && cargo test --verbose
+", file_name, file_name);
+        }).collect(),
+    };
+
+    let mut rust_yml_ending = github_actions
+        .iter()
+        .map(|s| &**s)
+        .collect::<Vec<&str>>();
+
+    rust_yml_ending.sort();
+
+    let rust_yml = rust_yml_beginning.to_owned()
+        + &rust_yml_ending.join("");
 
     fs::write("../.github/workflows/rust.yml", rust_yml).unwrap();
 }
