@@ -19,7 +19,7 @@ mod should {
     #[test]
     fn error_when_check_new_project_missing_last_page() {
 
-        let expected = "Missing last page.";
+        let expected = format!("Missing last page.\n{}", USAGE);
 
         let arguments = vec![
             "new_project".to_string(),
@@ -138,7 +138,7 @@ fn check_new_project(arguments: Vec<String>) -> Result<Project, String> {
 
     if arguments.len() == 2
     {
-        return Err("Missing last page.".to_string());
+        return Err(format!("Missing last page.\n{}", USAGE));
     }
 
     if arguments.len() == 3
