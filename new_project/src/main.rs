@@ -5,7 +5,7 @@ mod should {
     #[test]
     fn error_when_check_new_project_with_missing_page_number() {
 
-        let expected = "Missing page number.";
+        let expected = format!("Missing page number.\n{}", USAGE);
 
         let arguments = vec![
             "new_project".to_string(),
@@ -120,6 +120,8 @@ mod should {
     }
 }
 
+static USAGE: &str = "Usage: new_project <page_number> <last_page> <project_name>";
+
 #[derive(Debug, PartialEq)]
 struct Project {
     last_page: u32,
@@ -127,26 +129,26 @@ struct Project {
     page_number: u32,
 }
 
-fn check_new_project(arguments: Vec<String>) -> Result<Project, &'static str> {
+fn check_new_project(arguments: Vec<String>) -> Result<Project, String> {
 
     if arguments.len() == 1
     {
-        return Err("Missing page number.");
+        return Err(format!("Missing page number.\n{}", USAGE));
     }
 
     if arguments.len() == 2
     {
-        return Err("Missing last page.");
+        return Err("Missing last page.".to_string());
     }
 
     if arguments.len() == 3
     {
-        return Err("Missing project name.");
+        return Err("Missing project name.".to_string());
     }
 
     if arguments[3].trim().eq("")
     {
-        return Err("Empty project name.");
+        return Err("Empty project name.".to_string());
     }
 
     return match arguments[1].parse::<u32>() {
@@ -158,15 +160,17 @@ fn check_new_project(arguments: Vec<String>) -> Result<Project, &'static str> {
                 name: arguments[3].to_string(),
                 page_number: page_number,
             }),
-            Err(_) => Err("Invalid last page."),
+            Err(_) => Err("Invalid last page.".to_string()),
         },
-        Err(_) => Err("Invalid page number."),
+        Err(_) => Err("Invalid page number.".to_string()),
     }
 }
 
 fn main() {
 
     use std::env;
+
+    println!("This is {}", USAGE);
 
     let result = check_new_project(env::args().collect());
 
