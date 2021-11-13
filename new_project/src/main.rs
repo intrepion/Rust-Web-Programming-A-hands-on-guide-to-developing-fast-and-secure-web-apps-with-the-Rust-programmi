@@ -200,8 +200,7 @@ fn real_main() -> i32 {
     return 0;
 }
 
-fn create_project(project: Project)
-{
+fn create_project(project: Project) {
     use std::fs;
     use std::iter::repeat;
     use std::process::Command;
@@ -227,4 +226,30 @@ fn create_project(project: Project)
         .arg(project_folder)
         .output()
         .expect("failed to create project");
+
+    let rust_yml = "name: Rust
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: cd new_project && cargo build --verbose
+    - name: Run tests
+      run: cd new_project && cargo test --verbose
+";
+
+    fs::write("../.github/workflows/rust.yml", rust_yml).unwrap();
 }
