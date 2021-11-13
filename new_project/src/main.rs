@@ -3,7 +3,7 @@ mod should {
     use super::*;
 
     #[test]
-    fn error_when_check_new_project_with_missing_page_number() {
+    fn error_check_new_project_when_missing_page_number() {
 
         let expected = format!("Missing page number.\n{}", USAGE);
 
@@ -17,7 +17,7 @@ mod should {
     }
     
     #[test]
-    fn error_when_check_new_project_missing_last_page() {
+    fn error_check_new_project_when_missing_last_page() {
 
         let expected = format!("Missing last page.\n{}", USAGE);
 
@@ -32,9 +32,9 @@ mod should {
     }
 
     #[test]
-    fn error_when_check_new_project_with_an_english_page_number() {
+    fn error_check_new_project_when_english_page_number() {
 
-        let expected = "Invalid page number.";
+        let expected = format!("Invalid page number.\n{}", USAGE);
 
         let arguments = vec![
             "new_project".to_string(),
@@ -49,9 +49,9 @@ mod should {
     }
 
     #[test]
-    fn error_when_check_new_project_with_an_english_last_page() {
+    fn error_check_new_project_when_english_last_page() {
 
-        let expected = "Invalid last page.";
+        let expected = format!("Invalid last page.\n{}", USAGE);
 
         let arguments = vec![
             "new_project".to_string(),
@@ -66,9 +66,9 @@ mod should {
     }
 
     #[test]
-    fn error_when_check_new_project_with_missing_project_name() {
+    fn error_check_new_project_when_missing_project_name() {
 
-        let expected = "Missing project name.";
+        let expected = format!("Missing project name.\n{}", USAGE);
 
         let arguments = vec![
             "new_project".to_string(),
@@ -84,7 +84,7 @@ mod should {
     #[test]
     fn error_when_check_new_project_with_empty_project_name() {
 
-        let expected = "Empty project name.";
+        let expected = format!("Empty project name.\n{}", USAGE);
 
         let arguments = vec![
             "new_project".to_string(),
@@ -143,12 +143,12 @@ fn check_new_project(arguments: Vec<String>) -> Result<Project, String> {
 
     if arguments.len() == 3
     {
-        return Err("Missing project name.".to_string());
+        return Err(format!("Missing project name.\n{}", USAGE));
     }
 
     if arguments[3].trim().eq("")
     {
-        return Err("Empty project name.".to_string());
+        return Err(format!("Empty project name.\n{}", USAGE));
     }
 
     return match arguments[1].parse::<u32>() {
@@ -160,9 +160,9 @@ fn check_new_project(arguments: Vec<String>) -> Result<Project, String> {
                 name: arguments[3].to_string(),
                 page_number: page_number,
             }),
-            Err(_) => Err("Invalid last page.".to_string()),
+            Err(_) => Err(format!("Invalid last page.\n{}", USAGE)),
         },
-        Err(_) => Err("Invalid page number.".to_string()),
+        Err(_) => Err(format!("Invalid page number.\n{}", USAGE)),
     }
 }
 
