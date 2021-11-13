@@ -82,7 +82,7 @@ mod should {
     }
 
     #[test]
-    fn error_when_check_new_project_with_empty_project_name() {
+    fn error_check_new_project_when_empty_project_name() {
 
         let expected = format!("Empty project name.\n{}", USAGE);
 
@@ -99,7 +99,7 @@ mod should {
     }
 
     #[test]
-    fn succeed_when_check_new_project_happy_path() {
+    fn succeed_check_new_project_when_happy_path() {
 
         let expected = Project {
             last_page: 256,
@@ -295,4 +295,33 @@ jobs:
         .arg("push")
         .output()
         .expect("failed to push branch");
+
+    let main_rs = "#[cfg(test)]
+mod should {
+    use super::*;
+
+    #[test]
+    fn succeed_some_function_when_run() {
+
+        let expected = ();
+        let actual = some_function();
+
+        assert_eq!(expected, actual);
+    }
+}
+
+fn some_function() {
+
+    return ();
+}
+
+fn main() {
+
+    println!(\"Hello, world!\");
+}
+";
+
+    let main_rs_path = format!("../projects/{}/src/main.rs", project_folder);
+
+    fs::write(main_rs_path, main_rs).unwrap();
 }
