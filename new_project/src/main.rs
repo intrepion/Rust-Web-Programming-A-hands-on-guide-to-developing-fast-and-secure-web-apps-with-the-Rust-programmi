@@ -224,6 +224,12 @@ fn create_project(project: Project) {
         .output()
         .expect("failed to create project");
 
+    Command::new("cargo")
+        .current_dir(format!("../projects/{}", project_folder))
+        .arg("build")
+        .output()
+        .expect("failed to build project");
+
     let rust_yml_beginning = "name: Rust
 
 on:
