@@ -49,6 +49,23 @@ mod should {
     }
 
     #[test]
+    fn error_when_check_new_project_with_an_english_last_page() {
+
+        let expected = "Invalid last page.";
+
+        let arguments = vec![
+            "new_project".to_string(),
+            "1".to_string(),
+            "ninety".to_string(),
+            "hello_world".to_string(),
+        ];
+
+        let actual = check_new_project(arguments).unwrap_err();
+
+        assert_eq!(expected, actual);
+    }
+
+    #[test]
     fn error_when_check_new_project_with_missing_project_name() {
 
         let expected = "Missing project name.";
@@ -141,7 +158,7 @@ fn check_new_project(arguments: Vec<String>) -> Result<Project, &'static str> {
                 name: arguments[3].to_string(),
                 page_number: page_number,
             }),
-            Err(_) => Err("Invalid"),
+            Err(_) => Err("Invalid last page."),
         },
         Err(_) => Err("Invalid page number."),
     }
