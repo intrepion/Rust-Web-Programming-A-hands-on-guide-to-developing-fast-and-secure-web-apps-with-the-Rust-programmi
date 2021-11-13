@@ -168,15 +168,63 @@ fn check_new_project(arguments: Vec<String>) -> Result<Project, String> {
 
 fn main() {
 
-    use std::env;
+    use std::process::exit;
 
-    println!("This is {}", USAGE);
+    let exit_code = real_main();
+
+    exit(exit_code);
+}
+
+fn real_main() -> i32 {
+
+    use std::env;
 
     let result = check_new_project(env::args().collect());
 
     match result {
 
-        Ok(project) => println!("okay: {:?}", project),
-        Err(error) => println!("error: {:?}", error),
+        Ok(project) => {
+
+            println!("okay: {:?}", project);
+
+            create_project(project);
+        },
+        Err(error) => {
+
+            println!("error: {:?}", error);
+
+            return 1;
+        },
     }
+
+    return 0;
+}
+
+fn create_project(project: Project)
+{
+    use std::fs;
+    use std::iter::repeat;
+    use std::process::Command;
+
+    fs::create_dir_all("../projects").unwrap();
+
+    let page_number_digits = ((project.page_number as f64).log(10_f64).trunc() as i32) + 1;
+    println!("page_number_digits: {}", page_number_digits);
+    let last_page_digits = ((project.last_page as f64).log(10_f64).trunc() as i32) + 1;
+    println!("last_page_digits: {}", last_page_digits);
+    let difference = last_page_digits - page_number_digits;
+    println!("difference: {}", difference);
+
+    let project_folder = "page_".to_owned()
+        + &repeat("0").take(difference as usize).collect::<String>()
+        + &project.page_number.to_string()
+        + "_"
+        + &project.name;
+
+    Command::new("cargo")
+        .current_dir("../projects")
+        .arg("new")
+        .arg(project_folder)
+        .output()
+        .expect("failed to create project");
 }
