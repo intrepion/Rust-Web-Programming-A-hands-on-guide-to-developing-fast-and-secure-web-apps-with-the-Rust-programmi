@@ -220,7 +220,7 @@ fn create_project(project: Project) {
     Command::new("cargo")
         .current_dir("../projects")
         .arg("new")
-        .arg(project_folder)
+        .arg(&project_folder)
         .output()
         .expect("failed to create project");
 
@@ -271,4 +271,22 @@ jobs:
         + &rust_yml_ending.join("");
 
     fs::write("../.github/workflows/rust.yml", rust_yml).unwrap();
+
+    Command::new("git")
+        .arg("add")
+        .arg("-A")
+        .output()
+        .expect("failed to add changes to staged");
+
+    Command::new("git")
+        .arg("commit")
+        .arg("-m")
+        .arg(format!("\"created project {}\"", project_folder))
+        .output()
+        .expect("failed to create commit");
+
+    Command::new("git")
+        .arg("push")
+        .output()
+        .expect("failed to push branch");
 }
