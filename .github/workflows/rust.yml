@@ -20,3 +20,7 @@ jobs:
       run: cd new_project && cargo build --verbose
     - name: Run tests
       run: cd new_project && cargo test --verbose
+    - name: Build
+      run: cd projects/page_005_using_strings_in_rust && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_005_using_strings_in_rust && cargo test --verbose
