@@ -36,3 +36,7 @@ jobs:
       run: cd projects/page_008_storing_data_in_vectors_and_arrays && cargo build --verbose
     - name: Run tests
       run: cd projects/page_008_storing_data_in_vectors_and_arrays && cargo test --verbose
+    - name: Build
+      run: cd projects/page_009_mapping_data_with_hash_maps && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_009_mapping_data_with_hash_maps && cargo test --verbose
