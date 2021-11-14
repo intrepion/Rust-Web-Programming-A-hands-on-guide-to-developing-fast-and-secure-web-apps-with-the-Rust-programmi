@@ -52,3 +52,7 @@ jobs:
       run: cd projects/page_018_running_through_lifetimes && cargo build --verbose
     - name: Run tests
       run: cd projects/page_018_running_through_lifetimes && cargo test --verbose
+    - name: Build
+      run: cd projects/page_021_building_structs && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_021_building_structs && cargo test --verbose
