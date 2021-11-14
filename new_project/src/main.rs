@@ -287,7 +287,7 @@ jobs:
     Command::new("git")
         .arg("commit")
         .arg("-m")
-        .arg(format!("\"created project {}\"", project_folder))
+        .arg(format!("created project {}", project_folder))
         .output()
         .expect("failed to create commit");
 
