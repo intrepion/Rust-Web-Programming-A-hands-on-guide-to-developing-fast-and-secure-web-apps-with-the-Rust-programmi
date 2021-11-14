@@ -310,14 +310,11 @@ mod should {
     }
 }
 
-fn some_function() {
-
-    return ();
-}
+fn some_function() {}
 
 fn main() {
 
-    println!(\"Hello, world!\");
+    some_function();
 }
 ";
 
