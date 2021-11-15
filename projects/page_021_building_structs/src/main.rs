@@ -3,7 +3,7 @@ mod should {
     use super::*;
 
     #[test]
-    fn succeed_some_function_given_name_age() {
+    fn succeed_human_impl_new_given_name_age() {
 
         let expected = Human {
             name: "Oliver Forral".to_string(),
@@ -17,7 +17,7 @@ mod should {
     }
 
     #[test]
-    fn succeed_some_function_given_name_age_current_thought() {
+    fn succeed_human_impl_new_given_name_age_current_thought() {
 
         let expected = Human {
             name: "Oliver Forral".to_string(),
@@ -56,9 +56,20 @@ impl Human {
 
         return self;
     }
+
+    fn speak(&self) -> () {
+        
+        println!("Hello my name is {} and I'm {} years old.", &self.name, &self.age);
+    }
 }
 
 fn main() {
 
     let developer = Human::new("Maxwell Flitton", 31);
+    developer.speak();
+    println!("currently I'm thinking {}", developer.current_thought);
+
+    let new_developer = Human::new("Grace", 30).with_thought(String::from("I'm Hungry"));
+    new_developer.speak();
+    println!("currently I'm thinking {}", new_developer.current_thought);
 }
