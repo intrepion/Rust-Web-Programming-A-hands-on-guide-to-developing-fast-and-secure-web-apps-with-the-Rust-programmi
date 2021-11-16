@@ -279,7 +279,6 @@ mod should {
 
     #[test]
     fn succeed_some_function_when_run() {
-
         let expected = ();
         let actual = some_function();
 
@@ -290,7 +289,6 @@ mod should {
 fn some_function() {}
 
 fn main() {
-
     some_function();
 }
 ";
