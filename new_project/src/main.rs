@@ -191,7 +191,7 @@ fn real_main() -> i32 {
         },
         Err(error) => {
 
-            println!("error: {:?}", error);
+            println!("{}", error);
 
             return 1;
         },
