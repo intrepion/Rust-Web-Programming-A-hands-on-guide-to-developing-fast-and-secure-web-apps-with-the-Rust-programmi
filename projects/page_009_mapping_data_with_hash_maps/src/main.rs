@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 #[cfg(test)]
 mod should {
     use super::*;
@@ -12,6 +10,8 @@ mod should {
         assert_eq!(expected, actual);
     }
 }
+
+use std::collections::HashMap;
 
 fn some_function() {
     let mut general_map: HashMap<&str, i8> = HashMap::new();
