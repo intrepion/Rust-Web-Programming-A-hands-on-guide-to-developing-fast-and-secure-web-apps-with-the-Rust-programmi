@@ -4,7 +4,6 @@ mod should {
 
     #[test]
     fn succeed_human_impl_new_given_name_age() {
-
         let expected = Human {
             name: "Oliver Forral".to_string(),
             age: 38,
@@ -18,15 +17,14 @@ mod should {
 
     #[test]
     fn succeed_human_impl_new_given_name_age_current_thought() {
-
         let expected = Human {
             name: "Oliver Forral".to_string(),
             age: 38,
             current_thought: "I want to program in Rust.".to_string(),
         };
 
-        let actual = Human::new("Oliver Forral", 38)
-            .with_thought("I want to program in Rust.".to_string());
+        let actual =
+            Human::new("Oliver Forral", 38).with_thought("I want to program in Rust.".to_string());
 
         assert_eq!(expected, actual);
     }
@@ -40,9 +38,7 @@ struct Human {
 }
 
 impl Human {
-
     fn new(input_name: &str, input_age: i8) -> Human {
-
         return Human {
             name: input_name.to_string(),
             age: input_age,
@@ -51,20 +47,20 @@ impl Human {
     }
 
     fn with_thought(mut self, thought: String) -> Human {
-
         self.current_thought = thought;
 
         return self;
     }
 
     fn speak(&self) -> () {
-        
-        println!("Hello my name is {} and I'm {} years old.", &self.name, &self.age);
+        println!(
+            "Hello my name is {} and I'm {} years old.",
+            &self.name, &self.age
+        );
     }
 }
 
 fn main() {
-
     let developer = Human::new("Maxwell Flitton", 31);
     developer.speak();
     println!("currently I'm thinking {}", developer.current_thought);

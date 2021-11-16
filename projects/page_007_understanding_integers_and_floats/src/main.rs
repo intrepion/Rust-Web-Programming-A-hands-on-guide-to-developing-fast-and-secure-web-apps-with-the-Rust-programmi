@@ -4,7 +4,6 @@ mod should {
 
     #[test]
     fn succeed_some_function_when_run() {
-
         let expected = ();
         let actual = some_function();
 
@@ -13,7 +12,6 @@ mod should {
 }
 
 fn some_function() {
-
     let _number: u8 = 255;
 
     let _float: f32 = 20.6;
@@ -22,6 +20,5 @@ fn some_function() {
 }
 
 fn main() {
-
     some_function();
 }

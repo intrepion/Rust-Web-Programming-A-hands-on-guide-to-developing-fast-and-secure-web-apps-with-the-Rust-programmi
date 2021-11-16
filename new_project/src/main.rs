@@ -4,27 +4,20 @@ mod should {
 
     #[test]
     fn error_check_new_project_when_missing_page_number() {
-
         let expected = format!("Missing page number.\n{}", USAGE);
 
-        let arguments = vec![
-            "new_project".to_string(),
-        ];
+        let arguments = vec!["new_project".to_string()];
 
         let actual = check_new_project(arguments).unwrap_err();
 
         assert_eq!(expected, actual);
     }
-    
+
     #[test]
     fn error_check_new_project_when_missing_last_page() {
-
         let expected = format!("Missing last page.\n{}", USAGE);
 
-        let arguments = vec![
-            "new_project".to_string(),
-            "1".to_string(),
-        ];
+        let arguments = vec!["new_project".to_string(), "1".to_string()];
 
         let actual = check_new_project(arguments).unwrap_err();
 
@@ -33,7 +26,6 @@ mod should {
 
     #[test]
     fn error_check_new_project_when_english_page_number() {
-
         let expected = format!("Invalid page number.\n{}", USAGE);
 
         let arguments = vec![
@@ -50,7 +42,6 @@ mod should {
 
     #[test]
     fn error_check_new_project_when_english_last_page() {
-
         let expected = format!("Invalid last page.\n{}", USAGE);
 
         let arguments = vec![
@@ -67,7 +58,6 @@ mod should {
 
     #[test]
     fn error_check_new_project_when_missing_project_name() {
-
         let expected = format!("Missing project name.\n{}", USAGE);
 
         let arguments = vec![
@@ -83,7 +73,6 @@ mod should {
 
     #[test]
     fn error_check_new_project_when_empty_project_name() {
-
         let expected = format!("Empty project name.\n{}", USAGE);
 
         let arguments = vec![
@@ -100,7 +89,6 @@ mod should {
 
     #[test]
     fn succeed_check_new_project_when_happy_path() {
-
         let expected = Project {
             last_page: 256,
             name: "hello".to_string(),
@@ -130,31 +118,24 @@ struct Project {
 }
 
 fn check_new_project(arguments: Vec<String>) -> Result<Project, String> {
-
-    if arguments.len() == 1
-    {
+    if arguments.len() == 1 {
         return Err(format!("Missing page number.\n{}", USAGE));
     }
 
-    if arguments.len() == 2
-    {
+    if arguments.len() == 2 {
         return Err(format!("Missing last page.\n{}", USAGE));
     }
 
-    if arguments.len() == 3
-    {
+    if arguments.len() == 3 {
         return Err(format!("Missing project name.\n{}", USAGE));
     }
 
-    if arguments[3].trim().eq("")
-    {
+    if arguments[3].trim().eq("") {
         return Err(format!("Empty project name.\n{}", USAGE));
     }
 
     return match arguments[1].parse::<u32>() {
-
         Ok(page_number) => match arguments[2].parse::<u32>() {
-            
             Ok(last_page) => Ok(Project {
                 last_page: last_page,
                 name: arguments[3].to_string(),
@@ -163,11 +144,10 @@ fn check_new_project(arguments: Vec<String>) -> Result<Project, String> {
             Err(_) => Err(format!("Invalid last page.\n{}", USAGE)),
         },
         Err(_) => Err(format!("Invalid page number.\n{}", USAGE)),
-    }
+    };
 }
 
 fn main() {
-
     use std::process::exit;
 
     let exit_code = real_main();
@@ -176,25 +156,21 @@ fn main() {
 }
 
 fn real_main() -> i32 {
-
     use std::env;
 
     let result = check_new_project(env::args().collect());
 
     match result {
-
         Ok(project) => {
-
             println!("okay: {:?}", project);
 
             create_project(project);
-        },
+        }
         Err(error) => {
-
             println!("{}", error);
 
             return 1;
-        },
+        }
     }
 
     return 0;
@@ -256,25 +232,26 @@ jobs:
 
     let github_actions = match fs::read_dir("../projects") {
         Err(_) => vec!["".to_string()],
-        Ok(paths) => paths.map(|path| {
-            let file_name = path.unwrap().file_name().into_string().unwrap();
-            return format!("    - name: Build
+        Ok(paths) => paths
+            .map(|path| {
+                let file_name = path.unwrap().file_name().into_string().unwrap();
+                return format!(
+                    "    - name: Build
       run: cd projects/{} && cargo build --verbose
     - name: Run tests
       run: cd projects/{} && cargo test --verbose
-", file_name, file_name);
-        }).collect(),
+",
+                    file_name, file_name
+                );
+            })
+            .collect(),
     };
 
-    let mut rust_yml_ending = github_actions
-        .iter()
-        .map(|s| &**s)
-        .collect::<Vec<&str>>();
+    let mut rust_yml_ending = github_actions.iter().map(|s| &**s).collect::<Vec<&str>>();
 
     rust_yml_ending.sort();
 
-    let rust_yml = rust_yml_beginning.to_owned()
-        + &rust_yml_ending.join("");
+    let rust_yml = rust_yml_beginning.to_owned() + &rust_yml_ending.join("");
 
     fs::write("../.github/workflows/rust.yml", rust_yml).unwrap();
 

@@ -4,7 +4,6 @@ mod should {
 
     #[test]
     fn succeed_alter_text_when_run() {
-
         let expected = "1!".to_string();
         let mut actual = "1".to_string();
 
@@ -25,12 +24,10 @@ mod should {
 }
 
 fn alter_text(text: &mut String) {
-
     text.push("!".chars().next().unwrap());
 }
 
 fn print_text(text: &String) {
-
     println!("{}", text);
 }
 
@@ -43,7 +40,6 @@ fn print_number(number: i8) {
 }
 
 fn main() {
-
     let mut foo: String = String::from("foo");
     {
         println!("{}", foo);
