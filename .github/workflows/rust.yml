@@ -56,3 +56,7 @@ jobs:
       run: cd projects/page_021_building_structs && cargo build --verbose
     - name: Run tests
       run: cd projects/page_021_building_structs && cargo test --verbose
+    - name: Build
+      run: cd projects/page_023_building_structs_and_exploiting_enums && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_023_building_structs_and_exploiting_enums && cargo test --verbose
