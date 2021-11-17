@@ -278,7 +278,7 @@ mod should {
     use super::*;
 
     #[test]
-    fn succeed_some_function_when_run() {
+    fn succeed_some_function_given_run() {
         let expected = ();
         let actual = some_function();
 
