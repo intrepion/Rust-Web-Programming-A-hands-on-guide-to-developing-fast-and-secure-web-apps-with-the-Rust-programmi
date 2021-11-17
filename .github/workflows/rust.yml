@@ -60,3 +60,7 @@ jobs:
       run: cd projects/page_023_building_structs_and_exploiting_enums && cargo build --verbose
     - name: Run tests
       run: cd projects/page_023_building_structs_and_exploiting_enums && cargo test --verbose
+    - name: Build
+      run: cd projects/page_025_verifying_with_traits && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_025_verifying_with_traits && cargo test --verbose
