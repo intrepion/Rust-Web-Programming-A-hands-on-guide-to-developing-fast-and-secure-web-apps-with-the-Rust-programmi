@@ -92,3 +92,7 @@ jobs:
       run: cd projects/page_046_managing_structs_with_factories && cargo build --verbose
     - name: Run tests
       run: cd projects/page_046_managing_structs_with_factories && cargo test --verbose
+    - name: Build
+      run: cd projects/page_048_defining_functionality_with_traits && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_048_defining_functionality_with_traits && cargo test --verbose
