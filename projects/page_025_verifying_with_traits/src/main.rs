@@ -54,15 +54,21 @@ struct GeneralUser {
 
 impl GeneralUser {
     fn new(name: String, password: String, team: String) -> GeneralUser {
-        return GeneralUser{super_struct: BaseUser{name, password}, team: team}
+        return GeneralUser {
+            super_struct: BaseUser { name, password },
+            team: team,
+        };
     }
 }
 
 impl CanEdit for GeneralUser {}
 
 impl CanCreate for GeneralUser {
-    fn create(&self) ->  () {
-        println!("{} is creating under a {} team", self.super_struct.name, self.team);
+    fn create(&self) -> () {
+        println!(
+            "{} is creating under a {} team",
+            self.super_struct.name, self.team
+        );
     }
 }
 
