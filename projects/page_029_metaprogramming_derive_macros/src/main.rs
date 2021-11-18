@@ -14,7 +14,7 @@ mod should {
     }
 }
 
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 struct Coordinate {
     x: i8,
     y: i8,
@@ -28,4 +28,5 @@ fn main() {
     let test = Coordinate { x: 1, y: 2 };
     print(test);
     println!("{}", test.x);
+    println!("{:?}", test);
 }
