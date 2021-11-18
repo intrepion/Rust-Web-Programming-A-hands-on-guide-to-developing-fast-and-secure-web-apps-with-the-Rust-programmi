@@ -76,3 +76,7 @@ jobs:
       run: cd projects/page_029_metaprogramming_derive_macros && cargo build --verbose
     - name: Run tests
       run: cd projects/page_029_metaprogramming_derive_macros && cargo test --verbose
+    - name: Build
+      run: cd projects/page_036_shipping_crates_with_cargo && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_036_shipping_crates_with_cargo && cargo test --verbose
