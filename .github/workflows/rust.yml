@@ -68,3 +68,7 @@ jobs:
       run: cd projects/page_027_metaprogramming_generics_through_coordinates && cargo build --verbose
     - name: Run tests
       run: cd projects/page_027_metaprogramming_generics_through_coordinates && cargo test --verbose
+    - name: Build
+      run: cd projects/page_028_metaprogramming_macro_capitalizes_string && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_028_metaprogramming_macro_capitalizes_string && cargo test --verbose
