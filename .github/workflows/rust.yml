@@ -100,3 +100,7 @@ jobs:
       run: cd projects/page_053_reading_and_writing_json_files && cargo build --verbose
     - name: Run tests
       run: cd projects/page_053_reading_and_writing_json_files && cargo test --verbose
+    - name: Build
+      run: cd projects/page_056_revisiting_traits && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_056_revisiting_traits && cargo test --verbose
