@@ -21,7 +21,6 @@ use std::env;
 fn some_function() {}
 
 fn main() {
-    some_function();
     let args: Vec<String> = env::args().collect();
     let status: &String = &args[1];
     let title: &String = &args[2];
@@ -31,4 +30,5 @@ fn main() {
 
     state.insert(title.to_string(), json!(status));
     write_to_file("./state.json", &mut state);
+    some_function();
 }
