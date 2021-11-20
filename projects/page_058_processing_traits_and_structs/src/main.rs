@@ -11,16 +11,16 @@ mod should {
     }
 }
 
+mod processes;
 mod state;
 mod to_do;
-mod processes;
 
-use std::env;
-use state::read_file;
+use processes::process_input;
 use serde_json::value::Value;
 use serde_json::Map;
+use state::read_file;
+use std::env;
 use to_do::to_do_factory;
-use processes::process_input;
 
 fn some_function() {}
 
