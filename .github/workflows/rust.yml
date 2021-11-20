@@ -116,3 +116,7 @@ jobs:
       run: cd projects/page_070_understanding_closures && cargo build --verbose
     - name: Run tests
       run: cd projects/page_070_understanding_closures && cargo test --verbose
+    - name: Build
+      run: cd projects/page_073_understanding_asynchronous_programming && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_073_understanding_asynchronous_programming && cargo test --verbose
