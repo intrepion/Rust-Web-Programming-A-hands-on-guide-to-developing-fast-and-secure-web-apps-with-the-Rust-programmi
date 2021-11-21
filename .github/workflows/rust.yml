@@ -152,3 +152,7 @@ jobs:
       run: cd projects/page_089_putting_it_together && cargo build --verbose
     - name: Run tests
       run: cd projects/page_089_putting_it_together && cargo test --verbose
+    - name: Build
+      run: cd projects/page_096_getting_to_know_the_initial_setup && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_096_getting_to_know_the_initial_setup && cargo test --verbose
