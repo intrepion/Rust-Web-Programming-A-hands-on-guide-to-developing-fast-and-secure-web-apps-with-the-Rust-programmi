@@ -15,5 +15,5 @@ pub async fn create(req: HttpRequest) -> String {
     let item = to_do::to_do_factory(&String::from("pending"), &title).expect("create "); // 3
     process_input(item, "create".to_string(), &state); // 4
 
-    return format!("{} created", title_reference) // 5
+    return format!("{} created", title_reference); // 5
 }
