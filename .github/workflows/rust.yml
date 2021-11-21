@@ -128,3 +128,7 @@ jobs:
       run: cd projects/page_076_understanding_async_and_await && cargo build --verbose
     - name: Run tests
       run: cd projects/page_076_understanding_async_and_await && cargo test --verbose
+    - name: Build
+      run: cd projects/page_077_package_two_futures && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_077_package_two_futures && cargo test --verbose
