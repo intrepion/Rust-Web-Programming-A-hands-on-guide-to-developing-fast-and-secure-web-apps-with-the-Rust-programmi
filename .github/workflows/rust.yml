@@ -148,3 +148,7 @@ jobs:
       run: cd projects/page_087_extra_parameters_to_individual_factories && cargo build --verbose
     - name: Run tests
       run: cd projects/page_087_extra_parameters_to_individual_factories && cargo test --verbose
+    - name: Build
+      run: cd projects/page_089_putting_it_together && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_089_putting_it_together && cargo test --verbose
