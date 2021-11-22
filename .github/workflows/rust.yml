@@ -160,3 +160,7 @@ jobs:
       run: cd projects/page_097_passing_parameters && cargo build --verbose
     - name: Run tests
       run: cd projects/page_097_passing_parameters && cargo test --verbose
+    - name: Build
+      run: cd projects/page_100_use_post_instead_of_get && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_100_use_post_instead_of_get && cargo test --verbose
