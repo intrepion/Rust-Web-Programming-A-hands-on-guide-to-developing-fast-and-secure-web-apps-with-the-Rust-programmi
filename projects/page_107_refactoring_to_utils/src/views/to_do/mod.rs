@@ -1,5 +1,6 @@
 mod create;
 mod get;
+mod utils;
 
 use super::path::Path;
 use actix_web::web;
