@@ -1,8 +1,8 @@
 mod create;
 mod get;
 
-use actix_web::web;
 use super::path::Path;
+use actix_web::web;
 
 pub fn item_factory(app: &mut web::ServiceConfig) {
     let base_path: Path = Path {

@@ -1,6 +1,6 @@
-use serde::Serialize;
-use crate::to_do::ItemTypes;
 use crate::to_do::structs::base::Base;
+use crate::to_do::ItemTypes;
+use serde::Serialize;
 
 #[derive(Serialize)]
 pub struct ToDoItems {
@@ -29,6 +29,6 @@ impl ToDoItems {
             done_items: done_array_buffer,
             pending_item_count: pending_count,
             pending_items: pending_array_buffer,
-        }
+        };
     }
 }
