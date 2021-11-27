@@ -168,3 +168,7 @@ jobs:
       run: cd projects/page_101_using_macros_for_json_serialization && cargo build --verbose
     - name: Run tests
       run: cd projects/page_101_using_macros_for_json_serialization && cargo test --verbose
+    - name: Build
+      run: cd projects/page_103_json_serialization_module && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_103_json_serialization_module && cargo test --verbose
