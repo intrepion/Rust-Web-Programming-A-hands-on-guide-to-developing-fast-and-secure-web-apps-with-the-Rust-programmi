@@ -38,7 +38,8 @@ async fn main() -> std::io::Result<()> {
                     let result = fut.await?;
                     Ok(result)
                 }
-            }).configure(views::views_factory);
+            })
+            .configure(views::views_factory);
 
         return app;
     })
