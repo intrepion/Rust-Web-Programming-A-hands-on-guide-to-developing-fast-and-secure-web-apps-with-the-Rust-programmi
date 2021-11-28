@@ -184,3 +184,7 @@ jobs:
       run: cd projects/page_113_process_json_web_token && cargo build --verbose
     - name: Run tests
       run: cd projects/page_113_process_json_web_token && cargo test --verbose
+    - name: Build
+      run: cd projects/page_120_displaying_html_in_a_browser && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_120_displaying_html_in_a_browser && cargo test --verbose
