@@ -176,3 +176,7 @@ jobs:
       run: cd projects/page_107_refactoring_to_utils && cargo build --verbose
     - name: Run tests
       run: cd projects/page_107_refactoring_to_utils && cargo test --verbose
+    - name: Build
+      run: cd projects/page_108_extracting_data && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_108_extracting_data && cargo test --verbose
