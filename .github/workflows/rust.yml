@@ -180,3 +180,7 @@ jobs:
       run: cd projects/page_108_extracting_data && cargo build --verbose
     - name: Run tests
       run: cd projects/page_108_extracting_data && cargo test --verbose
+    - name: Build
+      run: cd projects/page_113_process_json_web_token && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_113_process_json_web_token && cargo test --verbose
