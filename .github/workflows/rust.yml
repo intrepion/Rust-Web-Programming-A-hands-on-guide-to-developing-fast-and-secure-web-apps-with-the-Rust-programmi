@@ -204,3 +204,7 @@ jobs:
       run: cd projects/page_127_injecting_javascript_into_html && cargo build --verbose
     - name: Run tests
       run: cd projects/page_127_injecting_javascript_into_html && cargo test --verbose
+    - name: Build
+      run: cd projects/page_135_injecting_css_into_html && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_135_injecting_css_into_html && cargo test --verbose
