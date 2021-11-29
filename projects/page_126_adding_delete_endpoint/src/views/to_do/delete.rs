@@ -9,21 +9,13 @@ use serde_json::Map;
 
 pub async fn delete(to_do_item: web::Json<ToDoItem>) -> HttpResponse {
     let state: Map<String, Value> = read_file("./state.json");
-    let title_reference: &String = &to_do_item.title.clone();
     let title: String = to_do_item.title.clone();
-
-    let status: String;
-    match &state.get(title_reference) {
-        Some(result) => {
-            status = result.to_string().replace('\"', "");
-        }
-        None => return HttpResponse::NotFound().json(format!("{} not in state", title_reference)),
-    }
+    let status: String = to_do_item.status.clone();
 
     match to_do_factory(&status, &title) {
         Err(_item) => return HttpResponse::BadRequest().json(format!("{} not accepted", status)),
         Ok(item) => process_input(item, String::from("delete"), &state),
     }
-    
+
     return HttpResponse::Ok().json(return_state());
 }
