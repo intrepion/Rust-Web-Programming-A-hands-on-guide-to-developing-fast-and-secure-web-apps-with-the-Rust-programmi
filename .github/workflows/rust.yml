@@ -216,3 +216,7 @@ jobs:
       run: cd projects/page_151_using_docker_for_postgres && cargo build --verbose
     - name: Run tests
       run: cd projects/page_151_using_docker_for_postgres && cargo test --verbose
+    - name: Build
+      run: cd projects/page_156_connecting_to_postgres_with_diesel && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_156_connecting_to_postgres_with_diesel && cargo test --verbose
