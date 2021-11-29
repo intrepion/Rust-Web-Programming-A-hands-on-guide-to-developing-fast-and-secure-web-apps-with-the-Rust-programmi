@@ -192,3 +192,7 @@ jobs:
       run: cd projects/page_122_creating_a_content_loader && cargo build --verbose
     - name: Run tests
       run: cd projects/page_122_creating_a_content_loader && cargo test --verbose
+    - name: Build
+      run: cd projects/page_124_adding_input_and_functionality && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_124_adding_input_and_functionality && cargo test --verbose
