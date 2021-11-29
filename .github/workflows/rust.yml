@@ -220,3 +220,7 @@ jobs:
       run: cd projects/page_156_connecting_to_postgres_with_diesel && cargo build --verbose
     - name: Run tests
       run: cd projects/page_156_connecting_to_postgres_with_diesel && cargo test --verbose
+    - name: Build
+      run: cd projects/page_160_connecting_our_application_to_postgresql && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_160_connecting_our_application_to_postgresql && cargo test --verbose
