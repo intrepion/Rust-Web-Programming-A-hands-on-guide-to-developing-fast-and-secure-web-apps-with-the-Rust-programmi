@@ -1,7 +1,7 @@
+use super::utils::return_state;
 use crate::processes::process_input;
 use crate::state::read_file;
 use crate::to_do;
-use super::utils::return_state;
 use actix_web::{HttpRequest, HttpResponse};
 use serde_json::value::Value;
 use serde_json::Map;
