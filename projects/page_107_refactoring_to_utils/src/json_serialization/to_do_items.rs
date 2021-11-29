@@ -1,5 +1,7 @@
 use crate::to_do::structs::base::Base;
 use crate::to_do::ItemTypes;
+use actix_web::{Error, HttpRequest, HttpResponse, Responder};
+use futures::future::{ready, Ready};
 use serde::Serialize;
 
 #[derive(Serialize)]
@@ -31,7 +33,6 @@ impl ToDoItems {
             pending_items: pending_array_buffer,
         };
     }
-
 }
 
 impl Responder for ToDoItems {
