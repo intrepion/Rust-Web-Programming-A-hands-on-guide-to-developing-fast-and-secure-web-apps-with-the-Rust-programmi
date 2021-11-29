@@ -196,3 +196,7 @@ jobs:
       run: cd projects/page_124_adding_input_and_functionality && cargo build --verbose
     - name: Run tests
       run: cd projects/page_124_adding_input_and_functionality && cargo test --verbose
+    - name: Build
+      run: cd projects/page_126_adding_delete_endpoint && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_126_adding_delete_endpoint && cargo test --verbose
