@@ -228,3 +228,7 @@ jobs:
       run: cd projects/page_163_data_models_and_migrations && cargo build --verbose
     - name: Run tests
       run: cd projects/page_163_data_models_and_migrations && cargo test --verbose
+    - name: Build
+      run: cd projects/page_165_getting_data_from_the_database && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_165_getting_data_from_the_database && cargo test --verbose
