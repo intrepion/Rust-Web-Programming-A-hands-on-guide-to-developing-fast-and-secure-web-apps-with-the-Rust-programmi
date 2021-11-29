@@ -35,7 +35,11 @@ function apiCall(url, method) {
             renderItems(JSON.parse(this.responseText)["pending_items"],
                 "edit", "pendingItems", editItem);
             renderItems(JSON.parse(this.responseText)["done_items"],
-                "delete", "doneItems", deleteItem);;
+                "delete", "doneItems", deleteItem);
+            document.getElementById("completeNum").innerHTML =
+                JSON.parse(this.responseText)["done_item_count"];
+            document.getElementById("pendingNum").innerHTML =
+                JSON.parse(this.responseText)["pending_item_count"];
         }
     });
     xhr.open(method, url);
