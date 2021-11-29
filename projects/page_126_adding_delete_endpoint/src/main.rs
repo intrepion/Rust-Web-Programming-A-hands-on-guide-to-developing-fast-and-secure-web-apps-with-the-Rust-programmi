@@ -11,13 +11,14 @@ mod should {
     }
 }
 
-use actix_service::Service;
-use actix_web::{App, HttpServer};
 mod json_serialization;
 mod processes;
 mod state;
 mod to_do;
 mod views;
+
+use actix_service::Service;
+use actix_web::{App, HttpServer};
 
 fn some_function() {}
 

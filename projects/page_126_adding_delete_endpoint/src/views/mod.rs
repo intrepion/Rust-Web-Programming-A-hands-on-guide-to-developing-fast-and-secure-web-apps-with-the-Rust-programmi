@@ -1,9 +1,10 @@
-use actix_web::web;
 mod app;
 mod auth;
 mod path;
 mod to_do;
 pub mod token;
+
+use actix_web::web;
 
 pub fn views_factory(app: &mut web::ServiceConfig) {
     app::app_factory(app);

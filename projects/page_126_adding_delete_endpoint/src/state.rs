@@ -1,10 +1,9 @@
-use std::fs;
-use std::fs::File;
-use std::io::Read;
-
 use serde_json::json;
 use serde_json::value::Value;
 use serde_json::Map;
+use std::fs;
+use std::fs::File;
+use std::io::Read;
 
 pub fn read_file(file_name: &str) -> Map<String, Value> {
     let mut file = File::open(file_name.to_string()).unwrap();
