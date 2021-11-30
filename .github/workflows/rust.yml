@@ -244,3 +244,7 @@ jobs:
       run: cd projects/page_171_deleting_data && cargo build --verbose
     - name: Run tests
       run: cd projects/page_171_deleting_data && cargo test --verbose
+    - name: Build
+      run: cd projects/page_176_creating_a_user_data_model && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_176_creating_a_user_data_model && cargo test --verbose
