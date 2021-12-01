@@ -1,5 +1,5 @@
-use crate::schema::to_do;
 use super::super::user::user::User;
+use crate::schema::to_do;
 
 #[derive(Queryable, Identifiable, Associations)]
 #[belongs_to(User)]

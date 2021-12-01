@@ -1,12 +1,12 @@
 extern crate bcrypt;
 
 use crate::schema::users;
-use bcrypt::{DEFAULT_COST, hash};
+use bcrypt::{hash, DEFAULT_COST};
 use diesel::Insertable;
 use uuid::Uuid;
 
 #[derive(Insertable, Clone)]
-#[table_name="users"]
+#[table_name = "users"]
 pub struct NewUser {
     pub username: String,
     pub email: String,
@@ -19,6 +19,11 @@ impl NewUser {
         let hashed_password: String = hash(password.as_str(), DEFAULT_COST).unwrap();
         let uuid = Uuid::new_v4().to_string();
 
-        return NewUser {username, email, password: hashed_password, unique_id: uuid}
+        return NewUser {
+            username,
+            email,
+            password: hashed_password,
+            unique_id: uuid,
+        };
     }
 }
