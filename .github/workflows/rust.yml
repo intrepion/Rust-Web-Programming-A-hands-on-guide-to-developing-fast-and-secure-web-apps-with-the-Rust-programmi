@@ -252,3 +252,7 @@ jobs:
       run: cd projects/page_185_add_a_create_user_endpoint && cargo build --verbose
     - name: Run tests
       run: cd projects/page_185_add_a_create_user_endpoint && cargo test --verbose
+    - name: Build
+      run: cd projects/page_190_authenticating_our_users && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_190_authenticating_our_users && cargo test --verbose
