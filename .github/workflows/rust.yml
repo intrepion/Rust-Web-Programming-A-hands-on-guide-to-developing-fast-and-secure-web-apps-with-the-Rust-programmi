@@ -260,3 +260,7 @@ jobs:
       run: cd projects/page_193_refactoring_authentication && cargo build --verbose
     - name: Run tests
       run: cd projects/page_193_refactoring_authentication && cargo test --verbose
+    - name: Build
+      run: cd projects/page_194_managing_user_sessions && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_194_managing_user_sessions && cargo test --verbose
