@@ -14,22 +14,20 @@ pub async fn login(credentials: web::Json<Login>) -> HttpResponse {
     let connection = establish_connection();
     let users = users::table
         .filter(users::columns::username.eq(username.as_str()))
-        .load::<User>(&connection).unwrap();
+        .load::<User>(&connection)
+        .unwrap();
 
     if users.len() == 0 {
-        return HttpResponse::NotFound().await.unwrap()
+        return HttpResponse::NotFound().await.unwrap();
     } else if users.len() > 1 {
-        return HttpResponse::Conflict().await.unwrap()
+        return HttpResponse::Conflict().await.unwrap();
     }
 
     match users[0].clone().verify(password) {
         true => {
             let token: String = JwtToken::encode(users[0].clone().id);
-            HttpResponse::Ok()
-                .header("token", token)
-                .await
-                .unwrap()
-        },
+            HttpResponse::Ok().header("token", token).await.unwrap()
+        }
         false => HttpResponse::Unauthorized().await.unwrap(),
     }
 }
