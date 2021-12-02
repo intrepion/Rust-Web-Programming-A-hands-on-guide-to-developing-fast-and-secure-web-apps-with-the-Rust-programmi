@@ -2,8 +2,8 @@ extern crate hmac;
 extern crate jwt;
 extern crate sha2;
 use hmac::{Hmac, NewMac};
-use jwt::{Header, Token, VerifyWithKey};
 use jwt::SignWithKey;
+use jwt::{Header, Token, VerifyWithKey};
 use sha2::Sha256;
 use std::collections::BTreeMap;
 
@@ -13,7 +13,6 @@ pub struct JwtToken {
 }
 
 impl JwtToken {
-    
     pub fn encode(user_id: i32) -> String {
         let key: Hmac<Sha256> = Hmac::new_varkey(b"secret").unwrap();
         let mut claims = BTreeMap::new();
@@ -27,7 +26,7 @@ impl JwtToken {
         let key: Hmac<Sha256> = Hmac::new_varkey(b"secret").unwrap();
         let token_str: &str = encoded_token.as_str();
 
-        let token: Result<Token<Header, BTreeMap<String, i32>, _>, > =
+        let token: Result<Token<Header, BTreeMap<String, i32>, _>, _> =
             VerifyWithKey::verify_with_key(token_str, &key);
 
         match token {
@@ -39,7 +38,7 @@ impl JwtToken {
                     user_id: claims["user_id"],
                     body: encoded_token,
                 });
-            },
+            }
             Err(_) => return Err("Could not decode"),
         }
     }
