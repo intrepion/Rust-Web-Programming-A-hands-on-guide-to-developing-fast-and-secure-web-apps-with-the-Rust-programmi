@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 extern crate hmac;
 extern crate jwt;
 extern crate sha2;

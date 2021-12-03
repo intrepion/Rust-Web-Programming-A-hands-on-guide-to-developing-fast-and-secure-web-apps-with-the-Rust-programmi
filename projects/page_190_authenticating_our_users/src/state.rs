@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use serde_json::json;
 use serde_json::value::Value;
 use serde_json::Map;
