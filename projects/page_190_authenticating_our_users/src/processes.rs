@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use super::to_do::structs::done::Done;
 use super::to_do::structs::pending::Pending;
 use super::to_do::structs::traits::create::Create;
