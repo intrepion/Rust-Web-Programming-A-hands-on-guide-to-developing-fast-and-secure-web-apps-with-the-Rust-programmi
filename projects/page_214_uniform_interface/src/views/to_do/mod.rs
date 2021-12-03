@@ -10,6 +10,7 @@ use actix_web::web;
 pub fn item_factory(app: &mut web::ServiceConfig) {
     let base_path: Path = Path {
         prefix: String::from("/item"),
+        backend: true,
     };
 
     app.route(
