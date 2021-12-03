@@ -245,7 +245,7 @@ jobs:
     - name: Clean up
       run: cd projects/{} && cargo clean --verbose
 ",
-                    file_name, file_name
+                    file_name, file_name, file_name
                 );
             })
             .collect(),
