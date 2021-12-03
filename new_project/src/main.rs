@@ -228,6 +228,8 @@ jobs:
       run: cd new_project && cargo build --verbose
     - name: Run tests
       run: cd new_project && cargo test --verbose
+    - name: Clean up
+      run: cd new_project && cargo clean --verbose
 ";
 
     let github_actions = match fs::read_dir("../projects") {
@@ -240,6 +242,8 @@ jobs:
       run: cd projects/{} && cargo build --verbose
     - name: Run tests
       run: cd projects/{} && cargo test --verbose
+    - name: Clean up
+      run: cd projects/{} && cargo clean --verbose
 ",
                     file_name, file_name
                 );
