@@ -20,255 +20,389 @@ jobs:
       run: cd new_project && cargo build --verbose
     - name: Run tests
       run: cd new_project && cargo test --verbose
+    - name: Clean up
+      run: cd new_project && cargo clean --verbose
     - name: Build
       run: cd projects/page_005_using_strings_in_rust && cargo build --verbose
     - name: Run tests
       run: cd projects/page_005_using_strings_in_rust && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_005_using_strings_in_rust && cargo clean --verbose
     - name: Build
       run: cd projects/page_006_using_string_literals_in_rust && cargo build --verbose
     - name: Run tests
       run: cd projects/page_006_using_string_literals_in_rust && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_006_using_string_literals_in_rust && cargo clean --verbose
     - name: Build
       run: cd projects/page_007_understanding_integers_and_floats && cargo build --verbose
     - name: Run tests
       run: cd projects/page_007_understanding_integers_and_floats && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_007_understanding_integers_and_floats && cargo clean --verbose
     - name: Build
       run: cd projects/page_008_storing_data_in_vectors_and_arrays && cargo build --verbose
     - name: Run tests
       run: cd projects/page_008_storing_data_in_vectors_and_arrays && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_008_storing_data_in_vectors_and_arrays && cargo clean --verbose
     - name: Build
       run: cd projects/page_009_mapping_data_with_hash_maps && cargo build --verbose
     - name: Run tests
       run: cd projects/page_009_mapping_data_with_hash_maps && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_009_mapping_data_with_hash_maps && cargo clean --verbose
     - name: Build
       run: cd projects/page_011_handling_results_and_errors && cargo build --verbose
     - name: Run tests
       run: cd projects/page_011_handling_results_and_errors && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_011_handling_results_and_errors && cargo clean --verbose
     - name: Build
       run: cd projects/page_015_scopes && cargo build --verbose
     - name: Run tests
       run: cd projects/page_015_scopes && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_015_scopes && cargo clean --verbose
     - name: Build
       run: cd projects/page_018_running_through_lifetimes && cargo build --verbose
     - name: Run tests
       run: cd projects/page_018_running_through_lifetimes && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_018_running_through_lifetimes && cargo clean --verbose
     - name: Build
       run: cd projects/page_021_building_structs && cargo build --verbose
     - name: Run tests
       run: cd projects/page_021_building_structs && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_021_building_structs && cargo clean --verbose
     - name: Build
       run: cd projects/page_023_building_structs_and_exploiting_enums && cargo build --verbose
     - name: Run tests
       run: cd projects/page_023_building_structs_and_exploiting_enums && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_023_building_structs_and_exploiting_enums && cargo clean --verbose
     - name: Build
       run: cd projects/page_025_verifying_with_traits && cargo build --verbose
     - name: Run tests
       run: cd projects/page_025_verifying_with_traits && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_025_verifying_with_traits && cargo clean --verbose
     - name: Build
       run: cd projects/page_027_metaprogramming_generics_through_coordinates && cargo build --verbose
     - name: Run tests
       run: cd projects/page_027_metaprogramming_generics_through_coordinates && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_027_metaprogramming_generics_through_coordinates && cargo clean --verbose
     - name: Build
       run: cd projects/page_028_metaprogramming_macro_capitalizes_string && cargo build --verbose
     - name: Run tests
       run: cd projects/page_028_metaprogramming_macro_capitalizes_string && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_028_metaprogramming_macro_capitalizes_string && cargo clean --verbose
     - name: Build
       run: cd projects/page_029_metaprogramming_derive_macros && cargo build --verbose
     - name: Run tests
       run: cd projects/page_029_metaprogramming_derive_macros && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_029_metaprogramming_derive_macros && cargo clean --verbose
     - name: Build
       run: cd projects/page_036_shipping_crates_with_cargo && cargo build --verbose
     - name: Run tests
       run: cd projects/page_036_shipping_crates_with_cargo && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_036_shipping_crates_with_cargo && cargo clean --verbose
     - name: Build
       run: cd projects/page_037_documenting_with_cargo && cargo build --verbose
     - name: Run tests
       run: cd projects/page_037_documenting_with_cargo && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_037_documenting_with_cargo && cargo clean --verbose
     - name: Build
       run: cd projects/page_043_building_to_do_structs && cargo build --verbose
     - name: Run tests
       run: cd projects/page_043_building_to_do_structs && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_043_building_to_do_structs && cargo clean --verbose
     - name: Build
       run: cd projects/page_046_managing_structs_with_factories && cargo build --verbose
     - name: Run tests
       run: cd projects/page_046_managing_structs_with_factories && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_046_managing_structs_with_factories && cargo clean --verbose
     - name: Build
       run: cd projects/page_048_defining_functionality_with_traits && cargo build --verbose
     - name: Run tests
       run: cd projects/page_048_defining_functionality_with_traits && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_048_defining_functionality_with_traits && cargo clean --verbose
     - name: Build
       run: cd projects/page_053_reading_and_writing_json_files && cargo build --verbose
     - name: Run tests
       run: cd projects/page_053_reading_and_writing_json_files && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_053_reading_and_writing_json_files && cargo clean --verbose
     - name: Build
       run: cd projects/page_056_revisiting_traits && cargo build --verbose
     - name: Run tests
       run: cd projects/page_056_revisiting_traits && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_056_revisiting_traits && cargo clean --verbose
     - name: Build
       run: cd projects/page_058_processing_traits_and_structs && cargo build --verbose
     - name: Run tests
       run: cd projects/page_058_processing_traits_and_structs && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_058_processing_traits_and_structs && cargo clean --verbose
     - name: Build
       run: cd projects/page_069_launching_a_basic_actix_web_server && cargo build --verbose
     - name: Run tests
       run: cd projects/page_069_launching_a_basic_actix_web_server && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_069_launching_a_basic_actix_web_server && cargo clean --verbose
     - name: Build
       run: cd projects/page_070_understanding_closures && cargo build --verbose
     - name: Run tests
       run: cd projects/page_070_understanding_closures && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_070_understanding_closures && cargo clean --verbose
     - name: Build
       run: cd projects/page_073_understanding_asynchronous_programming && cargo build --verbose
     - name: Run tests
       run: cd projects/page_073_understanding_asynchronous_programming && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_073_understanding_asynchronous_programming && cargo clean --verbose
     - name: Build
       run: cd projects/page_074_start_thread_for_each_function_call && cargo build --verbose
     - name: Run tests
       run: cd projects/page_074_start_thread_for_each_function_call && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_074_start_thread_for_each_function_call && cargo clean --verbose
     - name: Build
       run: cd projects/page_076_understanding_async_and_await && cargo build --verbose
     - name: Run tests
       run: cd projects/page_076_understanding_async_and_await && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_076_understanding_async_and_await && cargo clean --verbose
     - name: Build
       run: cd projects/page_077_package_two_futures && cargo build --verbose
     - name: Run tests
       run: cd projects/page_077_package_two_futures && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_077_package_two_futures && cargo clean --verbose
     - name: Build
       run: cd projects/page_078_return_result_in_a_tuple && cargo build --verbose
     - name: Run tests
       run: cd projects/page_078_return_result_in_a_tuple && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_078_return_result_in_a_tuple && cargo clean --verbose
     - name: Build
       run: cd projects/page_079_asynchronous_join && cargo build --verbose
     - name: Run tests
       run: cd projects/page_079_asynchronous_join && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_079_asynchronous_join && cargo clean --verbose
     - name: Build
       run: cd projects/page_083_managing_views_using_the_actix_web_framework && cargo build --verbose
     - name: Run tests
       run: cd projects/page_083_managing_views_using_the_actix_web_framework && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_083_managing_views_using_the_actix_web_framework && cargo clean --verbose
     - name: Build
       run: cd projects/page_087_extra_parameters_to_individual_factories && cargo build --verbose
     - name: Run tests
       run: cd projects/page_087_extra_parameters_to_individual_factories && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_087_extra_parameters_to_individual_factories && cargo clean --verbose
     - name: Build
       run: cd projects/page_089_putting_it_together && cargo build --verbose
     - name: Run tests
       run: cd projects/page_089_putting_it_together && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_089_putting_it_together && cargo clean --verbose
     - name: Build
       run: cd projects/page_096_getting_to_know_the_initial_setup && cargo build --verbose
     - name: Run tests
       run: cd projects/page_096_getting_to_know_the_initial_setup && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_096_getting_to_know_the_initial_setup && cargo clean --verbose
     - name: Build
       run: cd projects/page_097_passing_parameters && cargo build --verbose
     - name: Run tests
       run: cd projects/page_097_passing_parameters && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_097_passing_parameters && cargo clean --verbose
     - name: Build
       run: cd projects/page_100_use_post_instead_of_get && cargo build --verbose
     - name: Run tests
       run: cd projects/page_100_use_post_instead_of_get && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_100_use_post_instead_of_get && cargo clean --verbose
     - name: Build
       run: cd projects/page_101_using_macros_for_json_serialization && cargo build --verbose
     - name: Run tests
       run: cd projects/page_101_using_macros_for_json_serialization && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_101_using_macros_for_json_serialization && cargo clean --verbose
     - name: Build
       run: cd projects/page_103_json_serialization_module && cargo build --verbose
     - name: Run tests
       run: cd projects/page_103_json_serialization_module && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_103_json_serialization_module && cargo clean --verbose
     - name: Build
       run: cd projects/page_107_refactoring_to_utils && cargo build --verbose
     - name: Run tests
       run: cd projects/page_107_refactoring_to_utils && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_107_refactoring_to_utils && cargo clean --verbose
     - name: Build
       run: cd projects/page_108_extracting_data && cargo build --verbose
     - name: Run tests
       run: cd projects/page_108_extracting_data && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_108_extracting_data && cargo clean --verbose
     - name: Build
       run: cd projects/page_113_process_json_web_token && cargo build --verbose
     - name: Run tests
       run: cd projects/page_113_process_json_web_token && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_113_process_json_web_token && cargo clean --verbose
     - name: Build
       run: cd projects/page_120_displaying_html_in_a_browser && cargo build --verbose
     - name: Run tests
       run: cd projects/page_120_displaying_html_in_a_browser && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_120_displaying_html_in_a_browser && cargo clean --verbose
     - name: Build
       run: cd projects/page_122_creating_a_content_loader && cargo build --verbose
     - name: Run tests
       run: cd projects/page_122_creating_a_content_loader && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_122_creating_a_content_loader && cargo clean --verbose
     - name: Build
       run: cd projects/page_124_adding_input_and_functionality && cargo build --verbose
     - name: Run tests
       run: cd projects/page_124_adding_input_and_functionality && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_124_adding_input_and_functionality && cargo clean --verbose
     - name: Build
       run: cd projects/page_126_adding_delete_endpoint && cargo build --verbose
     - name: Run tests
       run: cd projects/page_126_adding_delete_endpoint && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_126_adding_delete_endpoint && cargo clean --verbose
     - name: Build
       run: cd projects/page_127_injecting_javascript_into_html && cargo build --verbose
     - name: Run tests
       run: cd projects/page_127_injecting_javascript_into_html && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_127_injecting_javascript_into_html && cargo clean --verbose
     - name: Build
       run: cd projects/page_135_injecting_css_into_html && cargo build --verbose
     - name: Run tests
       run: cd projects/page_135_injecting_css_into_html && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_135_injecting_css_into_html && cargo clean --verbose
     - name: Build
       run: cd projects/page_142_inheriting_components && cargo build --verbose
     - name: Run tests
       run: cd projects/page_142_inheriting_components && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_142_inheriting_components && cargo clean --verbose
     - name: Build
       run: cd projects/page_151_using_docker_for_postgres && cargo build --verbose
     - name: Run tests
       run: cd projects/page_151_using_docker_for_postgres && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_151_using_docker_for_postgres && cargo clean --verbose
     - name: Build
       run: cd projects/page_156_connecting_to_postgres_with_diesel && cargo build --verbose
     - name: Run tests
       run: cd projects/page_156_connecting_to_postgres_with_diesel && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_156_connecting_to_postgres_with_diesel && cargo clean --verbose
     - name: Build
       run: cd projects/page_160_connecting_our_application_to_postgresql && cargo build --verbose
     - name: Run tests
       run: cd projects/page_160_connecting_our_application_to_postgresql && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_160_connecting_our_application_to_postgresql && cargo clean --verbose
     - name: Build
       run: cd projects/page_163_data_models_and_migrations && cargo build --verbose
     - name: Run tests
       run: cd projects/page_163_data_models_and_migrations && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_163_data_models_and_migrations && cargo clean --verbose
     - name: Build
       run: cd projects/page_165_getting_data_from_the_database && cargo build --verbose
     - name: Run tests
       run: cd projects/page_165_getting_data_from_the_database && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_165_getting_data_from_the_database && cargo clean --verbose
     - name: Build
       run: cd projects/page_167_inserting_data_into_the_database && cargo build --verbose
     - name: Run tests
       run: cd projects/page_167_inserting_data_into_the_database && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_167_inserting_data_into_the_database && cargo clean --verbose
     - name: Build
       run: cd projects/page_169_editing_the_database && cargo build --verbose
     - name: Run tests
       run: cd projects/page_169_editing_the_database && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_169_editing_the_database && cargo clean --verbose
     - name: Build
       run: cd projects/page_171_deleting_data && cargo build --verbose
     - name: Run tests
       run: cd projects/page_171_deleting_data && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_171_deleting_data && cargo clean --verbose
     - name: Build
       run: cd projects/page_176_creating_a_user_data_model && cargo build --verbose
     - name: Run tests
       run: cd projects/page_176_creating_a_user_data_model && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_176_creating_a_user_data_model && cargo clean --verbose
     - name: Build
       run: cd projects/page_185_add_a_create_user_endpoint && cargo build --verbose
     - name: Run tests
       run: cd projects/page_185_add_a_create_user_endpoint && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_185_add_a_create_user_endpoint && cargo clean --verbose
     - name: Build
       run: cd projects/page_190_authenticating_our_users && cargo build --verbose
     - name: Run tests
       run: cd projects/page_190_authenticating_our_users && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_190_authenticating_our_users && cargo clean --verbose
     - name: Build
       run: cd projects/page_193_refactoring_authentication && cargo build --verbose
     - name: Run tests
       run: cd projects/page_193_refactoring_authentication && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_193_refactoring_authentication && cargo clean --verbose
     - name: Build
       run: cd projects/page_194_managing_user_sessions && cargo build --verbose
     - name: Run tests
       run: cd projects/page_194_managing_user_sessions && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_194_managing_user_sessions && cargo clean --verbose
     - name: Build
       run: cd projects/page_211_return_unauthorized_response_if_authorization_fails && cargo build --verbose
     - name: Run tests
       run: cd projects/page_211_return_unauthorized_response_if_authorization_fails && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_211_return_unauthorized_response_if_authorization_fails && cargo clean --verbose
     - name: Build
       run: cd projects/page_214_uniform_interface && cargo build --verbose
     - name: Run tests
       run: cd projects/page_214_uniform_interface && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_214_uniform_interface && cargo clean --verbose
+    - name: Build
+      run: cd projects/page_217_statelessness && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_217_statelessness && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_217_statelessness && cargo clean --verbose
