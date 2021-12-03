@@ -268,3 +268,7 @@ jobs:
       run: cd projects/page_211_return_unauthorized_response_if_authorization_fails && cargo build --verbose
     - name: Run tests
       run: cd projects/page_211_return_unauthorized_response_if_authorization_fails && cargo test --verbose
+    - name: Build
+      run: cd projects/page_214_uniform_interface && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_214_uniform_interface && cargo test --verbose
