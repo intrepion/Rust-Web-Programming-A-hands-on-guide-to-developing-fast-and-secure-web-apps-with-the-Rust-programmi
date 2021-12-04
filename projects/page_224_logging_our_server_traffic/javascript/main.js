@@ -82,7 +82,11 @@ function getItems() {
     call.send();
 }
 
-getItems();
+if (localStorage.getItem("user-token") == null) {
+    window.location.replace(document.location.origin + "/login/");
+} else {
+    getItems();
+}
 
 document.getElementById("create-button").addEventListener("click", createItem);
 

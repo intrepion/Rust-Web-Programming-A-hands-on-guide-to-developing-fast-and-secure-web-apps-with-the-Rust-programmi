@@ -26,16 +26,20 @@ mod to_do;
 mod views;
 use actix_service::Service;
 use actix_web::{App, HttpResponse, HttpServer};
+use env_logger;
 use futures::future::{ok, Either};
+use log;
 
 fn some_function() {}
 
 #[actix_rt::main]
 async fn main() -> std::io::Result<()> {
     some_function();
+    env_logger::init();
     HttpServer::new(|| {
         let app = App::new()
             .wrap_fn(|req, srv| {
+                let request_url: String = String::from(*&req.uri().path().clone());
                 let passed: bool;
 
                 if *&req.path().contains("/item/") {
@@ -58,7 +62,11 @@ async fn main() -> std::io::Result<()> {
                     )),
                 };
 
-                end_result
+                async move {
+                    let result = end_result.await?;
+                    log::info!("{} -> {}", request_url, &result.status());
+                    Ok(result)
+                }
             })
             .configure(views::views_factory);
 
