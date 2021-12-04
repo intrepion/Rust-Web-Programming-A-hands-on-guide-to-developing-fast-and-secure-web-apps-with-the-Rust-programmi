@@ -9,7 +9,7 @@ impl Path {
             true => {
                 let path: String = self.prefix.to_owned() + &following_path;
                 String::from("/api/v1") + &path
-            },
+            }
             false => self.prefix.to_owned() + &following_path,
         }
     }
