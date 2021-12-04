@@ -271,33 +271,4 @@ jobs:
         .arg(format!("created project {}", project_folder))
         .output()
         .expect("failed to create commit");
-
-    Command::new("git")
-        .arg("push")
-        .output()
-        .expect("failed to push branch");
-
-    let main_rs = "#[cfg(test)]
-mod should {
-    use super::*;
-
-    #[test]
-    fn succeed_some_function_given_run() {
-        let expected = ();
-        let actual = some_function();
-
-        assert_eq!(expected, actual);
-    }
-}
-
-fn some_function() {}
-
-fn main() {
-    some_function();
-}
-";
-
-    let main_rs_path = format!("../projects/{}/src/main.rs", project_folder);
-
-    fs::write(main_rs_path, main_rs).unwrap();
 }
