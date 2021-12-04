@@ -430,3 +430,9 @@ jobs:
       run: cd projects/page_242_building_our_unit_tests && cargo test --verbose
     - name: Clean up
       run: cd projects/page_242_building_our_unit_tests && cargo clean --verbose
+    - name: Build
+      run: cd projects/page_269_deploying_to_aws && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_269_deploying_to_aws && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_269_deploying_to_aws && cargo clean --verbose
