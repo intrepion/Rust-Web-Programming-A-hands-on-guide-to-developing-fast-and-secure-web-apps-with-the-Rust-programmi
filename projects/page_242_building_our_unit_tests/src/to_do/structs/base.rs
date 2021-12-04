@@ -1,3 +1,21 @@
+#[cfg(test)]
+mod base_tests {
+
+    use super::Base;
+
+    #[test]
+    fn new() {
+        let title = "test title";
+        let expected_title = "test title";
+        let status = "test status";
+        let expected_status = "test status";
+
+        let new_base_struct: Base = Base::new(title, status);
+        assert_eq!(expected_title, new_base_struct.title);
+        assert_eq!(expected_status, new_base_struct.status);
+    }
+}
+
 use serde::Serialize;
 
 #[derive(Serialize)]

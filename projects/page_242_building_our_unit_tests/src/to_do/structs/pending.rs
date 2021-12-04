@@ -1,3 +1,20 @@
+#[cfg(test)]
+mod pending_test {
+
+    use super::Pending;
+
+    #[test]
+    fn new() {
+        let expected_status = "pending";
+        let title = "washing";
+        let expected_title = "washing";
+
+        let pending: Pending = Pending::new(title);
+        assert_eq!(expected_status, pending.super_struct.status);
+        assert_eq!(expected_title, pending.super_struct.title);
+    }
+}
+
 use super::base::Base;
 use super::traits::create::Create;
 use super::traits::delete::Delete;

@@ -1,3 +1,20 @@
+#[cfg(test)]
+mod done_test {
+
+    use super::Done;
+
+    #[test]
+    fn new() {
+        let expected_status = "done";
+        let title = "excel date";
+        let expected_title = "excel date";
+
+        let done: Done = Done::new(title);
+        assert_eq!(expected_status, done.super_struct.status);
+        assert_eq!(expected_title, done.super_struct.title);
+    }
+}
+
 use super::base::Base;
 use super::traits::delete::Delete;
 use super::traits::edit::Edit;
