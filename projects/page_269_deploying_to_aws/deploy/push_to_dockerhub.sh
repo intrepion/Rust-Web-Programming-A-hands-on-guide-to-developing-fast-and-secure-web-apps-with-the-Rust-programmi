@@ -4,9 +4,9 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 cd $SCRIPTPATH
 cd ..
 
-docker build -t rust_app .
+sudo docker build -t rust_app .
 
-docker tag rust_app:latest maxwellflitton/actix_web_application:latest
+sudo docker tag rust_app:latest intrepion/actix_web_application:latest
 
-docker login
-docker push maxwellflitton/actix_web_application:latest
+sudo docker login
+sudo docker push intrepion/actix_web_application:latest
