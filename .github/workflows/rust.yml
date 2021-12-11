@@ -436,3 +436,9 @@ jobs:
       run: cd projects/page_269_deploying_to_aws && cargo test --verbose
     - name: Clean up
       run: cd projects/page_269_deploying_to_aws && cargo clean --verbose
+    - name: Build
+      run: cd projects/page_301_setting_up_rocket_server && cargo build --verbose
+    - name: Run tests
+      run: cd projects/page_301_setting_up_rocket_server && cargo test --verbose
+    - name: Clean up
+      run: cd projects/page_301_setting_up_rocket_server && cargo clean --verbose
