@@ -21,3 +21,6 @@ serde = "1"
 serde_json = { version = "1.0", default-features = false, features = ["alloc"] }
 sha2 = "0.9" 
 uuid = {version = "0.8", features = ["serde", "v4"]}
+
+# Needed for Postgres.
+openssl = "*"
